@@ -1,4 +1,6 @@
 -lib tink_web
+-lib tink_template
+-lib tink_http_middleware
 -lib hxnodejs
 -main server.Boot
 -cp src

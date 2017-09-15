@@ -1,8 +1,10 @@
 {
   "name": "cocodemo",
   "scripts": {
-    "postinstall": "lix download"
+    "postinstall": "lix download && haxe -cp src --run server.InstallLess",
+    "start": "haxe server.hxml && haxe forever.hxml node bin/server.js"
   },
+  "version": "0.0.42",
   "dependencies": {
     "haxeshim": "=0.9.0",
     "lix.pm": "=0.10.2"
