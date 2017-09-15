@@ -1,6 +1,7 @@
 -lib coconut.vdom
 -lib lessie
 -lib tink_web
+-lib compiletime
 -main client.App
 -cp src
 -js bin/static/app.js

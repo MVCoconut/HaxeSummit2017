@@ -18,11 +18,15 @@ class TestProject extends haxe.unit.TestCase {
         switch dir.get('sub') {
           case Some({ value: Dir(dir) }):
             switch dir.get('file9.txt') {
-              cast Some({ value: File({ content: 'file 9' }) })):
-            assertTrue(
+              case Some({ value: File(file) }):
+                assertEquals('file 9', file.content);
+                return;
+              default:
+            }
           case v:
         }
       default:
     }    
+    assertTrue(false);
   }
 }

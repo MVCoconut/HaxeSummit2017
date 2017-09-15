@@ -6,6 +6,10 @@ import client.Session;
 @:less('app.less')
 class App {
   static function main() {
+    var client = github.GithubClient.connect();
+    
+    client.gists()
+      .all().next(function (gists) return gists[0].id);
 
     // Observable.auto(FlatDump.ofProject.bind(p)).throttle(1000).bind(function (o) trace(o.length));
     

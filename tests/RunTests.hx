@@ -1,4 +1,4 @@
-package tests;
+package ;
 
 class RunTests {
   static function main() {
