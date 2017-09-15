@@ -1,6 +1,10 @@
 {
   "name": "cocodemo",
+  "scripts": {
+    "postinstall": "lix download"
+  },
   "dependencies": {
-    "haxeshim": "=0.9.0"
+    "haxeshim": "=0.9.0",
+    "lix.pm": "=0.10.2"
   }
 }
