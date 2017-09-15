@@ -1,0 +1,6 @@
+-lib tink_web
+-lib hxnodejs
+-main server.Boot
+-cp src
+-js bin/server.js
+-dce full

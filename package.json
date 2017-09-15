@@ -1,0 +1,6 @@
+{
+  "name": "cocodemo",
+  "dependencies": {
+    "haxeshim": "=0.9.0"
+  }
+}

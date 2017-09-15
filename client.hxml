@@ -1,0 +1,4 @@
+-lib coconut.vdom
+-cp src
+-js bin/static/app.js
+-dce full

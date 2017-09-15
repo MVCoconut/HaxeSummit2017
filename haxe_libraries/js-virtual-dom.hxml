@@ -1,0 +1,5 @@
+# @install: lix --silent download "haxelib:js-virtual-dom#0.9.1" into js-virtual-dom/0.9.1/haxelib
+-D js-virtual-dom=0.9.1
+-cp ${HAXESHIM_LIBCACHE}/js-virtual-dom/0.9.1/haxelib/src
+
+-lib tink_core

@@ -1,0 +1,12 @@
+{
+    "haxe.displayConfigurations": [
+        ["client.hxml"],
+        ["server.hxml"]
+    ],
+    "haxe.executable": {
+        "path": "node_modules/.bin/haxe",
+        "windows": {
+            "path": "node_modules/.bin/haxe.cmd"
+        }
+    }
+}

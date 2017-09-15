@@ -1,0 +1,7 @@
+{
+    "version": "0.1.0",
+    "command": "lix",
+    "args": ["build", "server.hxml"],
+    "isShellCommand": true,
+    "problemMatcher": "$haxe"
+}

@@ -1,0 +1,9 @@
+# @install: lix --silent download "haxelib:coconut.vdom#0.4.2" into coconut.vdom/0.4.2/haxelib
+-D coconut.vdom=0.4.2
+-cp ${HAXESHIM_LIBCACHE}/coconut.vdom/0.4.2/haxelib/src
+--macro coconut.vdom.macros.Setup.all()
+-lib tink_hxx
+-lib tink_state
+-lib coconut.ui
+-lib tink_csss
+-lib js-virtual-dom
