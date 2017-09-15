@@ -23,7 +23,7 @@ interface OwnGists {
   @:params(since in query)
   @:get('/') function all(?since:GithubDate):Promise<Array<GistInfo>>;
   @:get('/starred') function starred():Promise<Array<GistInfo>>;
-  @:sub('/$id') function get(id:GistId):Promise<Gist>;
+  @:sub('/$id') function byId(id:GistId):Promise<Gist>;
   @:post('/') function create(body:GistCreate):Promise<GistDetails>;  
 }
 
@@ -66,7 +66,7 @@ interface UserGists {
 
 interface Gist {
   @:get('/') function details():GistDetails;
-  @:patch('/') function edit(with:GistEdit):{};
+  @:patch('/') function edit(body:GistEdit):{};
 }
 
 typedef GithubDate = String;

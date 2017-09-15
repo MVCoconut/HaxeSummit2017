@@ -17,14 +17,20 @@ class Boot {
       });
     });
 
+  static var ext = switch Sys.systemName() {
+    case 'Windows': '.cmd';
+    default: '';
+  }
   static function main() {
-    var p = js.node.ChildProcess.spawn('haxe', ['--wait', '6000']);
+    var p = js.node.ChildProcess.spawn('lix$ext', ['build', '--wait', '6000']);
     changed('./src/server').handle(function () {
       Sys.println('source change detected');
-      if (Sys.command('haxe', ['server.hxml']) == 0) {
+      if (Sys.command('lix$ext', ['build', 'server.hxml']) == 0) {
         Sys.println('rebuild successful');
         p.kill();
-        Sys.exit(0);
+        p.on('exit', function () {
+          Sys.exit(0);
+        });
       }
       else
         Sys.println('rebuild failed');
@@ -37,7 +43,7 @@ class Boot {
     var client = new tink.http.clients.SecureNodeClient();
     
     container.run(function(req:IncomingRequest) {
-      trace(req.header.url.path);
+      
       return switch req.header.url.path.parts() {
         case api if (api[0] == 'api'):
           

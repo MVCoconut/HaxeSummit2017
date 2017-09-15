@@ -12,8 +12,8 @@ class Root implements Routes {
   public function serveFile(context:tink.web.routing.Context) {
     return files.process(@:privateAccess context.request);
   }
-  public function dump(id, files):Promise<Noise> {
-    return new Error(NotImplemented, 'not implemented');
+  public function dump(id:String, files:Array<{ name:String, content: String }>):Promise<Noise> {
+    return Noise;
   }
   public function app():tink.web.routing.Response
     return index();

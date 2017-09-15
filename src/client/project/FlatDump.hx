@@ -1,7 +1,7 @@
 package client.project;
 
 class FlatDump {
-  static function crawl(path:String, directory:Directory):List<Named<String>> {
+  static public function crawl(path:String, directory:Directory):List<Named<String>> {
     var ret = new List(),
         files = new List();
 
@@ -17,10 +17,7 @@ class FlatDump {
     return ret.concat(files);
   }
 
-  static public function ofProject(p:Project) 
-    return crawl('.', p.root);
-
-  static public function makeTree(id:ProjectId, files:List<Named<String>>):Outcome<Project, Error> {
+  static public function makeTree(files:List<Named<String>>):Outcome<Directory, Error> {
     
     var root = new Directory();
 
@@ -51,6 +48,6 @@ class FlatDump {
       cur.set(name, File(new File({ content: f.value })));
     }
 
-    return Success(new Project({ id: id, root: root }));
+    return Success(root);
   }
 }
