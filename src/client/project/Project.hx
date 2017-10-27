@@ -7,7 +7,7 @@ class Project implements Model {
   @:constant var root:Directory = @byDefault new Directory();
   @:editable private var _isSaving:Bool = false;
 
-  @:computed var isSaving:Bool = false;
+  @:computed var isSaving:Bool = _isSaving;
   @:constant private var saveProject:Project->Promise<Noise>;
   
   @:transition function save() {

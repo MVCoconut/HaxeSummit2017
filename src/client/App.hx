@@ -7,10 +7,9 @@ import js.Browser.*;
 @:less('app.less')
 @:tink
 class App {
-  
   static var gh = github.GithubClient.connect();
   static var server = new ServerProxy();
-
+  
   static function main() {
 
     gh.gists()
@@ -23,7 +22,16 @@ class App {
   }
 
   static function saveProject(p:Project) {
-    return Promise.lift(Noise);
+    return gh.gists().byId(p.id).edit({
+      description: p.description,
+      files: {
+        var files = new haxe.DynamicAccess<{ content: String }>();
+        for (f in FlatDump.crawl('.', p.root)) {
+          files[f.name.substr(2).urlEncode()] = { content: f.value };
+        }
+        files;
+      }
+    }).next(function (_) return Noise);
   }
 
   static function launch(id:ProjectId) {
@@ -50,6 +58,23 @@ class App {
 
       
     });
+
+    document.body.appendChild(
+      coconut.Ui.hxx('
+        <MainView project={session.currentProject} />
+      ').init()
+    );
+    // session.observables.currentProject.bind(function (o:Promised<Project>) switch o {
+    //   case Done(p):
+    //     switch p.root.get('test.js') {
+    //       case Some({ value: File(file) }):
+    //         file.content = 'hohoho!';
+    //         p.save();
+    //       default:
+    //     }
+    //   default:
+      
+    // });
 
     Observable.auto(
       function () 

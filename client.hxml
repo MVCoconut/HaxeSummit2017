@@ -4,5 +4,8 @@
 -lib compiletime
 -main client.App
 -cp src
+-D closure_overwrite
+#-lib closure
+#-D closure_advanced
 -js bin/static/app.js
 -dce full
