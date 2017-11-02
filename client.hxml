@@ -1,5 +1,5 @@
 -lib coconut.vdom
--lib lessie
+#-lib lessie
 -lib tink_web
 -lib compiletime
 -main client.App
