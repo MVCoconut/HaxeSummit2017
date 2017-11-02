@@ -1,7 +1,7 @@
 {
     "version": "0.1.0",
-    "command": "lix",
-    "args": ["build", "client.hxml", "--connect", "6000", "--times"],
+    "command": "npm",
+    "args": ["--silent", "run", "--", "lix", "build", "client.hxml", "--connect", "6000", "--times"],
     "isShellCommand": true,
     "problemMatcher": "$haxe"
 }

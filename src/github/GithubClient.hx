@@ -10,10 +10,10 @@ class GithubClient extends Remote<Github> {
       { 
         host: new tink.url.Host('localhost:8080'), 
         path: (['api'] : Array<tink.url.Portion>),
-        headers: [
-          // new HeaderField('User-Agent', 'MyExperiment'), 
+        headers: [ 
           new HeaderField('Accepts', 'application/json'), 
-          new HeaderField('Authorization', 'Basic ' + haxe.crypto.Base64.encode(haxe.io.Bytes.ofString(CompileTime.readFile('src/github/credentials.txt'))))
+          // uncomment the following line after putting your github credentials as user:password in the specified path
+          // new HeaderField('Authorization', 'Basic ' + haxe.crypto.Base64.encode(haxe.io.Bytes.ofString(CompileTime.readFile('src/github/credentials.txt'))))
         ]
       }
     );

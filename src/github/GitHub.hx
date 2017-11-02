@@ -87,7 +87,7 @@ typedef GistFileDetails = {
 
 typedef GistOf<File> = {
   var id(default, null):String;
-  var description(default, null):String;
+  @:optional var description(default, null):String;
   var html_url(default, null):String;
   var files(default, null):DynamicAccess<File>;
 }

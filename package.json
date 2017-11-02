@@ -1,6 +1,7 @@
 {
   "name": "cocodemo",
   "scripts": {
+    "lix": "lix",
     "postinstall": "lix download && haxe -cp src --run server.InstallLess",
     "start": "lix build server.hxml && lix build forever.hxml node bin/server.js"
   },
