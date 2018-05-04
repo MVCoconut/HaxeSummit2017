@@ -22,10 +22,10 @@ class Boot {
     default: '';
   }
   static function main() {
-    var p = js.node.ChildProcess.spawn('lix$ext', ['build', '--wait', '6000']);
+    var p = js.node.ChildProcess.spawn('haxe$ext', ['--wait', '6200']);
     changed('./src/server').handle(function () {
       Sys.println('source change detected');
-      if (Sys.command('lix$ext', ['build', 'server.hxml']) == 0) {
+      if (Sys.command('haxe$ext', ['server.hxml']) == 0) {
         Sys.println('rebuild successful');
         p.kill();
         p.on('exit', function () {
